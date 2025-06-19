@@ -2,23 +2,23 @@ import numpy as np
 import matplotlib.pyplot as plt
 import scipy.integrate as spi
 
-# Крок 1: Визначення функції та меж інтегрування
+# Визначення функції та меж інтегрування
 def f(x):
     return x ** 2
 
 a = 0  # нижня межа
 b = 2  # верхня межа
 
-# Крок 2: Метод Монте-Карло для обчислення інтеграла
+# Метод Монте-Карло для обчислення інтеграла
 N = 100000  # кількість випадкових точок
 x_rand = np.random.uniform(a, b, N)
 f_rand = f(x_rand)
 monte_carlo_result = (b - a) * np.mean(f_rand)
 
-# Крок 3: Аналітичний розрахунок через scipy.quad
+# Аналітичний розрахунок через scipy.quad
 quad_result, quad_error = spi.quad(f, a, b)
 
-# Крок 4: Побудова графіка функції
+#  Побудова графіка функції
 x = np.linspace(-0.5, 2.5, 400)
 y = f(x)
 
@@ -39,7 +39,7 @@ ax.set_title('Графік інтегрування f(x) = x^2 від ' + str(a)
 plt.grid()
 plt.show()
 
-# Крок 5: Виведення результатів
+#  Виведення результатів
 print("Результати обчислення інтеграла:")
 print(f"Метод Монте-Карло:            {monte_carlo_result:.6f}")
 print(f"Аналітичне значення (quad):   {quad_result:.6f}")
